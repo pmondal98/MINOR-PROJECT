@@ -2,8 +2,14 @@
     <string name="app_name">EMERGENGY</string>
     <string name="frontscreenquote">It’s a great honor,\nTo save a life.\nYou saved many.</string>
     <string-array name="age">
-        <item>7</item><item>8</item><item>9</item><item>11</item><item>12</item><item>13</item>
-        <item>14</item><item>15</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
         <item>16</item>
         <item>17</item>
         <item>18</item>
