@@ -120,8 +120,10 @@
         android:textStyle="bold" />
     <Spinner
         android:id="@+id/spinnerage"
-        android:layout_width="60dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/age"
+        style="@style/mySpinnerItemStyle"
         android:layout_alignBottom="@id/tvage"
         android:layout_marginLeft="50dp"
         android:layout_toRightOf="@id/tvage"/>
@@ -145,6 +147,7 @@
         android:layout_toRightOf="@id/tvaddress"
         android:ems="10"
         android:hint="Enter your permanent address"
+        android:inputType="textPostalAddress"
         android:textColor="#fff"
         android:textColorHint="#fff" />
     <TextView
@@ -189,7 +192,7 @@
         android:layout_marginLeft="15dp"
         android:layout_toRightOf="@id/tvcontactnumber"
         android:ems="10"
-        android:hint="Enter your contact numbar"
+        android:hint="Enter your contact number"
         android:inputType="phone"
         android:textColor="#fff"
         android:textColorHint="#fff" />
