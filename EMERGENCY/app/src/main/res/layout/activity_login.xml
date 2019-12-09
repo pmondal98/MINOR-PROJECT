@@ -38,6 +38,7 @@
         android:text="LOGIN"
         android:textColor="@color/basecolor"
         android:textSize="30dp"/>
+
     <TextView
         android:id="@+id/tvregister"
         android:layout_width="wrap_content"
@@ -45,9 +46,9 @@
         android:layout_below="@id/btnlogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="new usser ? register here"
+        android:text="new user ? register here"
         android:textColor="#fff"
-        android:textSize="20dp"/>
+        android:textSize="24sp" />
 
 
 </RelativeLayout>
