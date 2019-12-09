@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,9 @@
     android:background="@color/basecolor"
     tools:context=".MainActivity">
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <TextView
         android:id="@+id/tvname"
         android:layout_width="wrap_content"
@@ -18,7 +20,7 @@
         android:layout_marginTop="15dp"
         android:text="NAME :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <EditText
@@ -26,7 +28,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/tvname"
-        android:layout_marginLeft="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvname"
         android:ems="10"
         android:hint="Enter your name"
@@ -44,7 +52,7 @@
         android:layout_marginTop="15dp"
         android:text="E-MAIL :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <EditText
@@ -52,7 +60,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/tvemail"
-        android:layout_marginLeft="15dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvemail"
         android:ems="10"
         android:hint="Enter your e-mail"
@@ -68,7 +82,7 @@
         android:layout_marginTop="15dp"
         android:text="PASSWORD :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <EditText
@@ -76,7 +90,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/tvpassword"
-        android:layout_marginLeft="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvpassword"
         android:ems="10"
         android:hint="Enter your password"
@@ -92,7 +112,7 @@
         android:layout_marginTop="15dp"
         android:text="CONFIRM \nPASSWORD :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <EditText
@@ -100,7 +120,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/tvconfirmpassword"
-        android:layout_marginLeft="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvconfirmpassword"
         android:ems="10"
         android:hint="Confirm password"
@@ -108,45 +134,61 @@
         android:textColor="#fff"
         android:textColorHint="#fff" />
     <TextView
-        android:id="@+id/tvage"
+        android:id="@+id/tvdob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvconfirmpassword"
         android:layout_alignLeft="@id/tvconfirmpassword"
         android:layout_marginTop="15dp"
-        android:text="AGE :-"
+        android:text="D.O.B :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
-    <Spinner
-        android:id="@+id/spinnerage"
+
+    <EditText
+        android:id="@+id/etdob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/age"
-        style="@style/mySpinnerItemStyle"
-        android:layout_alignBottom="@id/tvage"
-        android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@id/tvage"/>
+        android:layout_alignTop="@id/tvdob"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-5dp"
+        android:layout_toRightOf="@id/tvdob"
+        android:hint="Enter your Date of Birth"
+        android:textColorHint="#fff"
+        android:textSize="18sp"
+        android:textColor="#fff"/>
     <TextView
         android:id="@+id/tvaddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvage"
-        android:layout_alignLeft="@id/tvage"
+        android:layout_below="@id/tvdob"
+        android:layout_alignLeft="@id/tvdob"
         android:layout_marginTop="15dp"
         android:text="ADDRESS :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
+
     <EditText
         android:id="@+id/etaddress"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@id/tvaddress"
-        android:layout_marginLeft="15dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvaddress"
         android:ems="10"
-        android:hint="Enter your permanent address"
+        android:hint="Enter your permanent \n address"
         android:inputType="textPostalAddress"
         android:textColor="#fff"
         android:textColorHint="#fff" />
@@ -155,18 +197,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvaddress"
-        android:layout_alignLeft="@id/tvage"
-        android:layout_marginTop="70dp"
+        android:layout_alignLeft="@id/tvdob"
+        android:layout_marginTop="40dp"
         android:text="PIN CODE :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
+
     <EditText
         android:id="@+id/etpin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/tvpin"
-        android:layout_marginLeft="15dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-4dp"
         android:layout_toRightOf="@id/tvpin"
         android:ems="10"
         android:hint="Enter your pin code"
@@ -179,20 +228,27 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvpin"
         android:layout_alignLeft="@id/tvpin"
-        android:layout_marginTop="15dp"
-        android:text="CONTACT \n NUMBER :-"
+        android:layout_marginTop="20dp"
+        android:text="PHONE :-"
         android:textColor="#fff"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
+
     <EditText
         android:id="@+id/etcontactnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/tvcontactnumber"
-        android:layout_marginLeft="15dp"
+        android:layout_alignTop="@id/tvcontactnumber"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="83dp"
+        android:layout_marginTop="-4dp"
         android:layout_toRightOf="@id/tvcontactnumber"
         android:ems="10"
-        android:hint="Enter your contact number"
+        android:hint="Enter your phone number"
         android:inputType="phone"
         android:textColor="#fff"
         android:textColorHint="#fff" />
@@ -203,8 +259,10 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/tvcontactnumber"
         android:text="SUBMIT"
-        android:textSize="30dp"
-        android:textColor="@color/basecolor"/>
-
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:background="@drawable/roundedbtn"/>
 
 </RelativeLayout>
+</ScrollView>

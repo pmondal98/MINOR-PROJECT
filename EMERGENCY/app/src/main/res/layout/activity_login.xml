@@ -9,46 +9,55 @@
 
 
     <EditText
-        android:id="@+id/etlogin"
+        android:id="@+id/etemail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="false"
-        android:layout_marginTop="300dp"
-        android:hint="Enter your e-mail"
-        android:textColor="#fff"
-        android:textColorHint="#fff" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/roundededt"
+        android:gravity="center"
+        android:hint="Enter your Email"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/etpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etlogin"
+        android:layout_below="@id/etemail"
         android:layout_marginTop="15dp"
+        android:textSize="25dp"
+        android:gravity="center"
         android:hint="Enter your password"
-        android:textColor="#fff"
-        android:textColorHint="#fff" />
+        android:background="@drawable/roundededt"
+        android:textColor="#000"
+        android:textColorHint="#000" />
 
     <Button
         android:id="@+id/btnlogin"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/etpassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="LOGIN"
-        android:textColor="@color/basecolor"
+        android:textColor="#fff"
+        android:background="@drawable/roundedbtn"
         android:textSize="30dp"/>
 
     <TextView
         android:id="@+id/tvregister"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnlogin"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="new user ? register here"
-        android:textColor="#fff"
-        android:textSize="24sp" />
+        android:text="New user ? Register here"
+        android:textColor="#000"
+        android:textSize="24sp"
+        android:background="@drawable/roundededt"/>
 
 
 </RelativeLayout>
