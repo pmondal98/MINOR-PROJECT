@@ -59,5 +59,149 @@
         android:inputType="textEmailAddress"
         android:textColor="#fff"
         android:textColorHint="#fff" />
+    <TextView
+        android:id="@+id/tvpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvemail"
+        android:layout_alignLeft="@id/tvemail"
+        android:layout_marginTop="15dp"
+        android:text="PASSWORD :-"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tvpassword"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tvpassword"
+        android:ems="10"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:textColor="#fff"
+        android:textColorHint="#fff" />
+    <TextView
+        android:id="@+id/tvconfirmpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvpassword"
+        android:layout_alignLeft="@id/tvpassword"
+        android:layout_marginTop="15dp"
+        android:text="CONFIRM \nPASSWORD :-"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etconfirmpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tvconfirmpassword"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tvconfirmpassword"
+        android:ems="10"
+        android:hint="Confirm password"
+        android:inputType="textPassword"
+        android:textColor="#fff"
+        android:textColorHint="#fff" />
+    <TextView
+        android:id="@+id/tvage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvconfirmpassword"
+        android:layout_alignLeft="@id/tvconfirmpassword"
+        android:layout_marginTop="15dp"
+        android:text="AGE :-"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <Spinner
+        android:id="@+id/spinnerage"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@id/tvage"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@id/tvage"/>
+    <TextView
+        android:id="@+id/tvaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvage"
+        android:layout_alignLeft="@id/tvage"
+        android:layout_marginTop="15dp"
+        android:text="ADDRESS :-"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/tvaddress"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/tvaddress"
+        android:ems="10"
+        android:hint="Enter your permanent address"
+        android:textColor="#fff"
+        android:textColorHint="#fff" />
+    <TextView
+        android:id="@+id/tvpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvaddress"
+        android:layout_alignLeft="@id/tvage"
+        android:layout_marginTop="70dp"
+        android:text="PIN CODE :-"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tvpin"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/tvpin"
+        android:ems="10"
+        android:hint="Enter your pin code"
+        android:inputType="number"
+        android:textColor="#fff"
+        android:textColorHint="#fff" />
+    <TextView
+        android:id="@+id/tvcontactnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvpin"
+        android:layout_alignLeft="@id/tvpin"
+        android:layout_marginTop="15dp"
+        android:text="CONTACT \n NUMBER :-"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etcontactnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tvcontactnumber"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/tvcontactnumber"
+        android:ems="10"
+        android:hint="Enter your contact numbar"
+        android:inputType="phone"
+        android:textColor="#fff"
+        android:textColorHint="#fff" />
+    <Button
+        android:id="@+id/btnsubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvcontactnumber"
+        android:text="SUBMIT"
+        android:textSize="30dp"
+        android:textColor="@color/basecolor"/>
+
 
 </RelativeLayout>
