@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/basecolor"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
     <TextView
         android:id="@+id/tvname"
         android:layout_width="wrap_content"
@@ -133,23 +134,24 @@
         android:inputType="textPassword"
         android:textColor="#fff"
         android:textColorHint="#fff" />
+
     <TextView
-        android:id="@+id/tvdob"
+        android:id="@+id/tvage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvconfirmpassword"
         android:layout_alignLeft="@id/tvconfirmpassword"
         android:layout_marginTop="15dp"
-        android:text="D.O.B :-"
+        android:text="AGE :-"
         android:textColor="#fff"
         android:textSize="20dp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etdob"
+        android:id="@+id/etage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/tvdob"
+        android:layout_alignTop="@id/tvage"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="20dp"
@@ -157,8 +159,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="83dp"
         android:layout_marginTop="-5dp"
-        android:layout_toRightOf="@id/tvdob"
-        android:hint="Enter your Date of Birth"
+        android:layout_toRightOf="@id/tvage"
+        android:hint="Enter your age"
         android:textColorHint="#fff"
         android:textSize="18sp"
         android:textColor="#fff"/>
@@ -166,8 +168,8 @@
         android:id="@+id/tvaddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvdob"
-        android:layout_alignLeft="@id/tvdob"
+        android:layout_below="@id/tvage"
+        android:layout_alignLeft="@id/tvage"
         android:layout_marginTop="15dp"
         android:text="ADDRESS :-"
         android:textColor="#fff"
@@ -188,7 +190,7 @@
         android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvaddress"
         android:ems="10"
-        android:hint="Enter your permanent \n address"
+        android:hint="Enter your permanent address"
         android:inputType="textPostalAddress"
         android:textColor="#fff"
         android:textColorHint="#fff" />
@@ -197,8 +199,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvaddress"
-        android:layout_alignLeft="@id/tvdob"
-        android:layout_marginTop="40dp"
+        android:layout_alignLeft="@id/tvage"
+        android:layout_marginTop="15dp"
         android:text="PIN CODE :-"
         android:textColor="#fff"
         android:textSize="20dp"
