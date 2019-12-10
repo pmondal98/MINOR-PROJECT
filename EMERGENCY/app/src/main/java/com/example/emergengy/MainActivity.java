@@ -73,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        finish();
+        startActivity(new Intent(MainActivity.this,login.class));
+    }
+
     private void CreateUserAndSaveData() {
         mfirebaseauth.createUserWithEmailAndPassword(etemail.getText().toString(),etpassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override

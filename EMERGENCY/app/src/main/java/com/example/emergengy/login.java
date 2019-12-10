@@ -21,7 +21,10 @@ public class login extends AppCompatActivity {
     EditText etemail,etpassword;
     Button btnlogin;
     TextView tvregister;
+
     FirebaseAuth mfirebaseauth;
+
+    private long backPressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,5 +88,20 @@ public class login extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(backPressedTime + 2000 > System.currentTimeMillis())
+        {
+            super.onBackPressed();
+            return;
+        }
+        else 
+        {
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        backPressedTime=System.currentTimeMillis();
     }
 }
