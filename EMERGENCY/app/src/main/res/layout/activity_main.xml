@@ -104,43 +104,13 @@
         android:inputType="textPassword"
         android:textColor="#fff"
         android:textColorHint="#fff" />
-    <TextView
-        android:id="@+id/tvconfirmpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvpassword"
-        android:layout_alignLeft="@id/tvpassword"
-        android:layout_marginTop="15dp"
-        android:text="CONFIRM \nPASSWORD :-"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/etconfirmpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/tvconfirmpassword"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="83dp"
-        android:layout_marginTop="-5dp"
-        android:layout_toRightOf="@id/tvconfirmpassword"
-        android:ems="10"
-        android:hint="Confirm password"
-        android:inputType="textPassword"
-        android:textColor="#fff"
-        android:textColorHint="#fff" />
 
     <TextView
         android:id="@+id/tvage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvconfirmpassword"
-        android:layout_alignLeft="@id/tvconfirmpassword"
+        android:layout_below="@id/tvpassword"
+        android:layout_alignLeft="@id/tvpassword"
         android:layout_marginTop="15dp"
         android:text="AGE :-"
         android:textColor="#fff"
@@ -161,6 +131,7 @@
         android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvage"
         android:hint="Enter your age"
+        android:inputType="number"
         android:textColorHint="#fff"
         android:textSize="18sp"
         android:textColor="#fff"/>
