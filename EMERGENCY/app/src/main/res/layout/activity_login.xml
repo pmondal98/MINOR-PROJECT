@@ -54,7 +54,20 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="New user ? Register here"
+        android:text="New user? Register here"
+        android:textColor="#000"
+        android:textSize="24sp"
+        android:background="@drawable/roundededt"/>
+
+    <TextView
+        android:id="@+id/tvforgotpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvregister"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Forgot Password?"
         android:textColor="#000"
         android:textSize="24sp"
         android:background="@drawable/roundededt"/>

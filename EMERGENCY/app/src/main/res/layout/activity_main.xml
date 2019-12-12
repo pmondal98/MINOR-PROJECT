@@ -161,7 +161,7 @@
         android:layout_marginTop="-5dp"
         android:layout_toRightOf="@id/tvaddress"
         android:ems="10"
-        android:hint="Enter your permanent address"
+        android:hint="Enter your full address"
         android:inputType="textPostalAddress"
         android:textColor="#fff"
         android:textColorHint="#fff" />

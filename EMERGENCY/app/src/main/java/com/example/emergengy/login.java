@@ -20,7 +20,7 @@ public class login extends AppCompatActivity {
 
     EditText etemail,etpassword;
     Button btnlogin;
-    TextView tvregister;
+    TextView tvregister,tvforgotpassword;
 
     FirebaseAuth mfirebaseauth;
 
@@ -35,6 +35,7 @@ public class login extends AppCompatActivity {
         etpassword=findViewById(R.id.etpassword);
         btnlogin=findViewById(R.id.btnlogin);
         tvregister=findViewById(R.id.tvregister);
+        tvforgotpassword=findViewById(R.id.tvforgotpassword);
 
         mfirebaseauth = FirebaseAuth.getInstance();
 
@@ -88,7 +89,16 @@ public class login extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        tvforgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(login.this,Forgot_password_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
     @Override
     public void onBackPressed() {
