@@ -35,7 +35,7 @@
         android:textColorHint="#000" />
 
     <Button
-        android:id="@+id/btnlogin"
+        android:id="@+id/btnsendemail"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/etpassword"
@@ -50,7 +50,7 @@
         android:id="@+id/tvregister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnlogin"
+        android:layout_below="@id/btnsendemail"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"

@@ -33,7 +33,7 @@ public class login extends AppCompatActivity {
 
         etemail=findViewById(R.id.etemail);
         etpassword=findViewById(R.id.etpassword);
-        btnlogin=findViewById(R.id.btnlogin);
+        btnlogin=findViewById(R.id.btnsendemail);
         tvregister=findViewById(R.id.tvregister);
         tvforgotpassword=findViewById(R.id.tvforgotpassword);
 

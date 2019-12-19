@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etname,etemail,etpassword,etage,etaddress,etpin,etcontactnumber;
     private Button btnsubmit;
+
     DatabaseReference ref;
     FirebaseAuth mfirebaseauth;
     Member member;
