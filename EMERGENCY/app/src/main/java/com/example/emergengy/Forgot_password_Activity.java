@@ -39,12 +39,12 @@ FirebaseAuth firebaseAuth;
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())
                             {
-                                Toast.makeText(Forgot_password_Activity.this, "Password Reset Email send ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Forgot_password_Activity.this, "Password Reset link is send to Email", Toast.LENGTH_SHORT).show();
                                 finish();
                                 startActivity(new Intent(Forgot_password_Activity.this,login.class));
                             }
                             else{
-                                Toast.makeText(Forgot_password_Activity.this, "Sorry! Password Reset Email send failed ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Forgot_password_Activity.this, "Sorry! Password Reset Email send failed...Email is not registered!!! ", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

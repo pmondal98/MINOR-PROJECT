@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/roundededt"
         android:gravity="center"
         android:hint="Enter your Email"
@@ -30,6 +30,7 @@
         android:textSize="25dp"
         android:gravity="center"
         android:hint="Enter your password"
+        android:inputType="textPassword"
         android:background="@drawable/roundededt"
         android:textColor="#000"
         android:textColorHint="#000" />

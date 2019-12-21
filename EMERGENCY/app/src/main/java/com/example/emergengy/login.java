@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -69,8 +71,7 @@ public class login extends AppCompatActivity {
                             }
                             else
                             {
-                                Toast.makeText(login.this, "Login Successful....", Toast.LENGTH_SHORT).show();
-                                //startActivity(new Intent(login.this,HomeActivity.class));
+                                startActivity(new Intent(login.this,CategoryActivity.class));
                             }
                         }
                     });
@@ -105,10 +106,12 @@ public class login extends AppCompatActivity {
 
         if(backPressedTime + 2000 > System.currentTimeMillis())
         {
-            super.onBackPressed();
-            return;
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
         }
-        else 
+        else
         {
             Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
         }
