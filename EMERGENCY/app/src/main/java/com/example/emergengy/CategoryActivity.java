@@ -44,8 +44,10 @@ public class CategoryActivity extends AppCompatActivity {
             case R.id.about:
                 Toast.makeText(this, "ABOUT BUTTON CLICKED", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.profile:
-                Toast.makeText(this, "ABOUT PROFILE BUTTON CLICKED", Toast.LENGTH_SHORT).show();
+            case R.id.profile: {
+                Intent i = new Intent(CategoryActivity.this, ProfileActivity.class);
+                startActivity(i);
+            }
         }
         return true;
     }

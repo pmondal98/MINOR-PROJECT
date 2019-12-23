@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         etage=findViewById(R.id.etage);
         etaddress=findViewById(R.id.etaddress);
         etpin=findViewById(R.id.etpin);
-        etcontactnumber=findViewById(R.id.etcontactnumber);
+        etcontactnumber=findViewById(R.id.contactnumber);
         btnsubmit=findViewById(R.id.btnsubmit);
 
         mfirebaseauth = FirebaseAuth.getInstance();
