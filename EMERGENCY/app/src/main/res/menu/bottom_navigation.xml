@@ -11,8 +11,8 @@
 
     <item
         android:id="@+id/nav_search"
-        android:icon="@drawable/ic_search"
-        android:title="SEARCH"/>
+        android:icon="@drawable/ic_local_hospital"
+        android:title="HOSPITALS"/>
 
     <item
         android:id="@+id/nav_about"

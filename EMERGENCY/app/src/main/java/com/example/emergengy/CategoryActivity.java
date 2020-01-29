@@ -20,6 +20,8 @@ public class CategoryActivity extends AppCompatActivity {
 
     private long backPressedTime;
 
+    Fragment selectedFragment=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +37,15 @@ public class CategoryActivity extends AppCompatActivity {
 
         BottomNavigationView bottomnavigation = findViewById(R.id.bottom_navigation);
         bottomnavigation.setOnNavigationItemSelectedListener(navlistener);
+
+        Fragment selectedFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navlistener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    Fragment selectedFragment = new HomeFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
 
                     switch (menuItem.getItemId()) {
                         case R.id.nav_home:
@@ -50,7 +53,7 @@ public class CategoryActivity extends AppCompatActivity {
                             break;
 
                         case R.id.nav_search:
-                            selectedFragment = new SearchFragment();
+                            selectedFragment = new HospitalFragment();
                             break;
 
                         case R.id.nav_about:

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CategoryActivity"
+    android:clickable="true"
     android:background="@drawable/background">
 
     <TextView
@@ -79,7 +80,7 @@
         android:layout_alignLeft="@+id/tvcondition"
         android:layout_marginTop="20dp">
         <RadioButton
-            android:id="@+id/rbemergency"
+            android:id="@+id/rbverycritical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="VERY CRITICAL"
@@ -88,7 +89,7 @@
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/rbpregwoma"
+            android:id="@+id/rbcritical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -98,7 +99,7 @@
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/rboldpeopl"
+            android:id="@+id/rblesscritical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -107,5 +108,18 @@
             android:textColor="#fff"
             android:textSize="20sp" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnnext"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rgcondition"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="NEXT"
+        android:textColor="#fff"
+        android:background="@drawable/roundedbtn"
+        android:textSize="30dp"/>
+
 
 </RelativeLayout>
