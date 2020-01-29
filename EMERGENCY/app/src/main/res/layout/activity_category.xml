@@ -7,110 +7,19 @@
     tools:context=".CategoryActivity"
     android:background="@drawable/background">
 
-    <TextView
-        android:id="@+id/tvcategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:text="SELECT CATEGORY ->"
-        android:textColor="#fff"
-        android:textSize="24dp"
-        android:textStyle="bold" />
 
-    <RadioGroup
-        android:id="@+id/rgcategory"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tvcategory"
-        android:layout_alignLeft="@+id/tvcategory"
-        android:layout_marginTop="20dp">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation"/>
 
-        <RadioButton
-            android:id="@+id/rbaccident"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ACCIDENT"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/rbpregwoman"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="PREGNANT  WOMAN"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/rboldpeople"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="OLD AGE PEOPLE"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
-            android:textSize="20sp" />
-    </RadioGroup>
-    <TextView
-        android:id="@+id/tvcondition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/rgcategory"
-        android:layout_alignLeft="@+id/rgcategory"
-        android:text="SELECT CONDITION ->"
-        android:textColor="#fff"
-        android:textSize="24dp"
-        android:textStyle="bold" />
-
-    <RadioGroup
-        android:id="@+id/rgcondition"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/tvcondition"
-        android:layout_alignLeft="@+id/tvcondition"
-        android:layout_marginTop="20dp">
-    <RadioButton
-        android:id="@+id/rbemergency"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VERY CRITICAL"
-        android:buttonTint="@color/white"
-        android:textColor="#fff"
-        android:textSize="20sp" />
-
-    <RadioButton
-        android:id="@+id/rbpregwoma"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="CRITICAL"
-        android:buttonTint="@color/white"
-        android:textColor="#fff"
-        android:textSize="20sp" />
-
-    <RadioButton
-        android:id="@+id/rboldpeopl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="LESS CRITICAL"
-        android:buttonTint="@color/white"
-        android:textColor="#fff"
-        android:textSize="20sp" />
-    </RadioGroup>
-
-
-
-
-
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"
+        android:background="?android:attr/windowBackground"/>
 
 </RelativeLayout>

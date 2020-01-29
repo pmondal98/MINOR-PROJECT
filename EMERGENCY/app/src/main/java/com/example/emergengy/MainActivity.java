@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (Build.VERSION.SDK_INT>=21)
+        {
+            Window window=this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.colorPrimary));
+        }
 
         etname=findViewById(R.id.etname);
         etemail=findViewById(R.id.etemail);
@@ -87,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful())
                 {
                     saveData();
-                    Toast.makeText(MainActivity.this, "User Creation.....Sucessfull", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "User Creation.....Successfull", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
