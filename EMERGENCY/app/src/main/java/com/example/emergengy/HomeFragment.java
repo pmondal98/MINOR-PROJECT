@@ -31,18 +31,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-
-                // consider using Java coding conventions (upper first char class names!!!)
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(R.id.fragment_container, new HospitalFragment());
-
-
-                // Commit the transaction
-                transaction.commit();
-
+               getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HospitalFragment()).commit();
+               
         }
 
     });
