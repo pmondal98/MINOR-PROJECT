@@ -19,12 +19,6 @@
         android:layout_marginTop="20dp"
         android:layout_margin="5dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter your Name"
-            android:textColorHint="#fff"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -57,6 +51,13 @@
             android:inputType="text"
             android:hint="Enter your Password"
             android:textColorHint="#fff"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Name"
+            android:inputType="text"
+            android:textColorHint="#fff" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
