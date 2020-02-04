@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HospitalFragment()).commit();
-               
+
         }
 
     });

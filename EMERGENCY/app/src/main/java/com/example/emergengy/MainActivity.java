@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etname,etemail,etpassword,etage,etaddress,etpin,inputcontactnumber;
+    private EditText inputname,inputemail,inputpassword,inputage,inputaddress,inputpin,inputcontactnumber;
     private Button btnsubmit;
 
     DatabaseReference ref;
@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.colorPrimary));
         }
 
-        etname=findViewById(R.id.etname);
-        etemail=findViewById(R.id.etemail);
-        etpassword=findViewById(R.id.etpassword);
-        etage=findViewById(R.id.etage);
-        etaddress=findViewById(R.id.etaddress);
-        etpin=findViewById(R.id.etpin);
+        inputname=findViewById(R.id.inputname);
+        inputemail=findViewById(R.id.inputemail);
+        inputpassword=findViewById(R.id.inputpassword);
+        inputage=findViewById(R.id.inputage);
+        inputaddress=findViewById(R.id.inputaddress);
+        inputpin=findViewById(R.id.inputpin);
         inputcontactnumber=findViewById(R.id.inputcontactnumber);
         btnsubmit=findViewById(R.id.btnsubmit);
 
@@ -62,18 +62,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(etname.getText().toString().trim().length()==0)
-                    etname.setError("Name is required");
-                else if (etemail.getText().toString().trim().length()==0)
-                    etemail.setError("Email is required");
-                else if (etpassword.getText().toString().trim().length()==0)
-                    etpassword.setError("Password is required");
-                else if(etage.getText().toString().trim().length()==0)
-                    etage.setError("Age is required");
-                else if (etaddress.getText().toString().trim().length()==0)
-                    etaddress.setError("Address is required");
-                else if (etpin.getText().toString().trim().length()==0)
-                    etpin.setError("Pic Code of your area is required");
+                if(inputname.getText().toString().trim().length()==0)
+                    inputname.setError("Name is required");
+                else if (inputemail.getText().toString().trim().length()==0)
+                    inputemail.setError("Email is required");
+                else if (inputpassword.getText().toString().trim().length()==0)
+                    inputpassword.setError("Password is required");
+                else if(inputage.getText().toString().trim().length()==0)
+                    inputage.setError("Age is required");
+                else if (inputaddress.getText().toString().trim().length()==0)
+                    inputaddress.setError("Address is required");
+                else if (inputpin.getText().toString().trim().length()==0)
+                    inputpin.setError("Pic Code of your area is required");
                 else if (inputcontactnumber.getText().toString().trim().length()==0)
                     inputcontactnumber.setError("Phone number is required");
                 else {
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void CreateUserAndSaveData() {
-        mfirebaseauth.createUserWithEmailAndPassword(etemail.getText().toString(),etpassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mfirebaseauth.createUserWithEmailAndPassword(inputemail.getText().toString(),inputpassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
@@ -113,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
     private void saveData()
     {
 
-        member.setName(etname.getText().toString().trim());
-        member.setEmail(etemail.getText().toString().trim());
-        member.setPassword(etpassword.getText().toString().trim());
-        member.setAge(etage.getText().toString().trim());
-        member.setAddress(etaddress.getText().toString().trim());
-        member.setPin(etpin.getText().toString().trim());
+        member.setName(inputname.getText().toString().trim());
+        member.setEmail(inputemail.getText().toString().trim());
+        member.setPassword(inputpassword.getText().toString().trim());
+        member.setAge(inputage.getText().toString().trim());
+        member.setAddress(inputaddress.getText().toString().trim());
+        member.setPin(inputpin.getText().toString().trim());
         member.setContactnumber(inputcontactnumber.getText().toString().trim());
 
         ref= FirebaseDatabase.getInstance().getReference().child("USERS").child(mfirebaseauth.getCurrentUser().getUid());
@@ -128,13 +128,12 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Registration Successful!!!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(MainActivity.this,login.class));
 
-        etname.setText(null);
-        etemail.setText(null);
-        etemail.setText(null);
-        etpassword.setText(null);
-        etage.setText(null);
-        etaddress.setText(null);
-        etpin.setText(null);
+        inputname.setText(null);
+        inputemail.setText(null);
+        inputpassword.setText(null);
+        inputage.setText(null);
+        inputaddress.setText(null);
+        inputpin.setText(null);
         inputcontactnumber.setText(null);
     }
 }
