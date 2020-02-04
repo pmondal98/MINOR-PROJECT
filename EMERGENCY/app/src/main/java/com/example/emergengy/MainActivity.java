@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etname,etemail,etpassword,etage,etaddress,etpin,etcontactnumber;
+    private EditText etname,etemail,etpassword,etage,etaddress,etpin,inputcontactnumber;
     private Button btnsubmit;
 
     DatabaseReference ref;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         etage=findViewById(R.id.etage);
         etaddress=findViewById(R.id.etaddress);
         etpin=findViewById(R.id.etpin);
-        etcontactnumber=findViewById(R.id.contactnumber);
+        inputcontactnumber=findViewById(R.id.inputcontactnumber);
         btnsubmit=findViewById(R.id.btnsubmit);
 
         mfirebaseauth = FirebaseAuth.getInstance();
@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                     etaddress.setError("Address is required");
                 else if (etpin.getText().toString().trim().length()==0)
                     etpin.setError("Pic Code of your area is required");
-                else if (etcontactnumber.getText().toString().trim().length()==0)
-                    etcontactnumber.setError("Phone number is required");
+                else if (inputcontactnumber.getText().toString().trim().length()==0)
+                    inputcontactnumber.setError("Phone number is required");
                 else {
                     CreateUserAndSaveData();
                 }
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         member.setAge(etage.getText().toString().trim());
         member.setAddress(etaddress.getText().toString().trim());
         member.setPin(etpin.getText().toString().trim());
-        member.setContactnumber(etcontactnumber.getText().toString().trim());
+        member.setContactnumber(inputcontactnumber.getText().toString().trim());
 
         ref= FirebaseDatabase.getInstance().getReference().child("USERS").child(mfirebaseauth.getCurrentUser().getUid());
 
@@ -135,6 +135,6 @@ public class MainActivity extends AppCompatActivity {
         etage.setText(null);
         etaddress.setText(null);
         etpin.setText(null);
-        etcontactnumber.setText(null);
+        inputcontactnumber.setText(null);
     }
 }

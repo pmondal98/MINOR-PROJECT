@@ -195,42 +195,30 @@
         android:inputType="number"
         android:textColor="#fff"
         android:textColorHint="#fff" />
-    <TextView
-        android:id="@+id/tvcontactnumber"
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputcontactnumber"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvpin"
         android:layout_alignLeft="@id/tvpin"
         android:layout_marginTop="20dp"
-        android:text="PHONE :-"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_margin="5dp">
 
-    <EditText
-        android:id="@+id/contactnumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/tvcontactnumber"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="83dp"
-        android:layout_marginTop="-4dp"
-        android:layout_toRightOf="@id/tvcontactnumber"
-        android:ems="10"
-        android:hint="Enter your phone number"
-        android:inputType="phone"
-        android:textColor="#fff"
-        android:textColorHint="#fff" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Enter your Phone number"
+            android:textColorHint="#fff"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btnsubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/tvcontactnumber"
+        android:layout_below="@id/inputcontactnumber"
         android:text="SUBMIT"
         android:textSize="20dp"
         android:layout_marginTop="15dp"
