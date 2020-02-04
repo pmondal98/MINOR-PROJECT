@@ -77,7 +77,7 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
         {
             checkUserLocationPermission();
         }
-        
+
         supportMapFragment=(SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.map);
         if (supportMapFragment==null)
         {
