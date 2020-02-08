@@ -24,8 +24,6 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -150,7 +148,7 @@ public class CategoryActivity extends AppCompatActivity implements GoogleApiClie
                     switch (id) {
                         case R.id.logout:
                             FirebaseAuth.getInstance().signOut();
-                            Intent intent = new Intent(CategoryActivity.this, login.class);
+                            Intent intent = new Intent(CategoryActivity.this, Login.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);

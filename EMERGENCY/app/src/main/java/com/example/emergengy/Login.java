@@ -1,10 +1,10 @@
 package com.example.emergengy;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,14 +13,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
-    EditText etemail,etpassword;
+    TextInputLayout inputemail,inputpassword;
     Button btnlogin;
     TextView tvregister,tvforgotpassword;
+
+    private ProgressDialog progressDialog;
 
     FirebaseAuth mfirebaseauth;
 
@@ -31,8 +34,8 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etemail=findViewById(R.id.etemail);
-        etpassword=findViewById(R.id.etpassword);
+        inputemail=findViewById(R.id.inputemail);
+        inputpassword=findViewById(R.id.inputpassword);
         btnlogin=findViewById(R.id.btnlogin);
         tvregister=findViewById(R.id.tvregister);
         tvforgotpassword=findViewById(R.id.tvforgotpassword);
@@ -42,41 +45,46 @@ public class login extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email=etemail.getText().toString().trim();
-                String password=etpassword.getText().toString().trim();
+                String email=inputemail.getEditText().getText().toString().trim();
+                String password=inputpassword.getEditText().getText().toString().trim();
                 if(email.isEmpty())
                 {
-                    etemail.setError("Please enter email id");
-                    etemail.requestFocus();
+                    inputemail.setError("Please enter email id");
+                    inputemail.requestFocus();
                 }
                 else if(password.isEmpty())
                 {
-                    etpassword.setError("Please enter password");
-                    etpassword.requestFocus();
+                    inputpassword.setError("Please enter password");
+                    inputpassword.requestFocus();
                 }
                 else if(email.isEmpty() && password.isEmpty())
                 {
-                    Toast.makeText(login.this, "Login failed....please fill up the details", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Login failed....please fill up the details", Toast.LENGTH_LONG).show();
                 }
                 else if(!(email.isEmpty() && password.isEmpty()))
                 {
-                    mfirebaseauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
+                    progressDialog=new ProgressDialog(getApplicationContext());
+                    progressDialog.setMessage("Logging In....please wait...");
+                    progressDialog.show();
+                    mfirebaseauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful())
                             {
-                                Toast.makeText(login.this, "Login Unsuccessful....please try again later", Toast.LENGTH_LONG).show();
+                                progressDialog.dismiss();
+                                Toast.makeText(Login.this, "Login Unsuccessful....please try again later", Toast.LENGTH_LONG).show();
                             }
                             else
                             {
-                                startActivity(new Intent(login.this,CategoryActivity.class));
+                                progressDialog.dismiss();
+                                startActivity(new Intent(Login.this,CategoryActivity.class));
                             }
                         }
                     });
                 }
                 else
                 {
-                    Toast.makeText(login.this, "Error Occured....please try again later", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Error Occured....please try again later", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -84,7 +92,7 @@ public class login extends AppCompatActivity {
         tvregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(login.this,MainActivity.class);
+                Intent i=new Intent(Login.this, Register.class);
                 startActivity(i);
             }
         });
@@ -92,7 +100,7 @@ public class login extends AppCompatActivity {
         tvforgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(login.this,Forgot_password_Activity.class);
+                Intent intent=new Intent(Login.this,Forgot_password_Activity.class);
                 startActivity(intent);
             }
         });

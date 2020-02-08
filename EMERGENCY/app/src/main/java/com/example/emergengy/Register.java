@@ -3,6 +3,7 @@ package com.example.emergengy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,21 +12,23 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
-    private EditText inputname,inputemail,inputpassword,inputage,inputaddress,inputpin,inputcontactnumber;
+    private TextInputLayout inputname,inputemail,inputpassword,inputage,inputaddress,inputpin,inputcontactnumber;
     private Button btnsubmit;
+
+    private ProgressDialog progressDialog;
 
     DatabaseReference ref;
     FirebaseAuth mfirebaseauth;
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
         if (Build.VERSION.SDK_INT>=21)
         {
@@ -62,19 +65,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(inputname.getText().toString().trim().length()==0)
+                if(inputname.getEditText().getText().toString().trim().length()==0)
                     inputname.setError("Name is required");
-                else if (inputemail.getText().toString().trim().length()==0)
+                else if (inputemail.getEditText().getText().toString().trim().length()==0)
                     inputemail.setError("Email is required");
-                else if (inputpassword.getText().toString().trim().length()==0)
+                else if (inputpassword.getEditText().getText().toString().trim().length()==0)
                     inputpassword.setError("Password is required");
-                else if(inputage.getText().toString().trim().length()==0)
+                else if(inputage.getEditText().getText().toString().trim().length()==0)
                     inputage.setError("Age is required");
-                else if (inputaddress.getText().toString().trim().length()==0)
+                else if (inputaddress.getEditText().getText().toString().trim().length()==0)
                     inputaddress.setError("Address is required");
-                else if (inputpin.getText().toString().trim().length()==0)
+                else if (inputpin.getEditText().getText().toString().trim().length()==0)
                     inputpin.setError("Pic Code of your area is required");
-                else if (inputcontactnumber.getText().toString().trim().length()==0)
+                else if (inputcontactnumber.getEditText().getText().toString().trim().length()==0)
                     inputcontactnumber.setError("Phone number is required");
                 else {
                     CreateUserAndSaveData();
@@ -88,23 +91,30 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         finish();
-        startActivity(new Intent(MainActivity.this,login.class));
+        startActivity(new Intent(Register.this, Login.class));
     }
 
     private void CreateUserAndSaveData() {
-        mfirebaseauth.createUserWithEmailAndPassword(inputemail.getText().toString(),inputpassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Processing your request....please wait...");
+        progressDialog.show();
+
+        mfirebaseauth.createUserWithEmailAndPassword(inputemail.getEditText().getText().toString(),inputpassword.getEditText().getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
                     saveData();
-                    Toast.makeText(MainActivity.this, "User Creation.....Successfull", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    Toast.makeText(Register.this, "User Successfully Registered...", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
+                    progressDialog.dismiss();
                     FirebaseAuthException e = (FirebaseAuthException)task.getException();
                     Log.i("ERROR",e.getMessage());
-                    Toast.makeText(MainActivity.this, "User Creation Failed....Please try again later", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "User Registration Failed....Please try again later", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -113,27 +123,19 @@ public class MainActivity extends AppCompatActivity {
     private void saveData()
     {
 
-        member.setName(inputname.getText().toString().trim());
-        member.setEmail(inputemail.getText().toString().trim());
-        member.setPassword(inputpassword.getText().toString().trim());
-        member.setAge(inputage.getText().toString().trim());
-        member.setAddress(inputaddress.getText().toString().trim());
-        member.setPin(inputpin.getText().toString().trim());
-        member.setContactnumber(inputcontactnumber.getText().toString().trim());
+        member.setName(inputname.getEditText().getText().toString().trim());
+        member.setEmail(inputemail.getEditText().getText().toString().trim());
+        member.setPassword(inputpassword.getEditText().getText().toString().trim());
+        member.setAge(inputage.getEditText().getText().toString().trim());
+        member.setAddress(inputaddress.getEditText().getText().toString().trim());
+        member.setPin(inputpin.getEditText().getText().toString().trim());
+        member.setContactnumber(inputcontactnumber.getEditText().getText().toString().trim());
 
         ref= FirebaseDatabase.getInstance().getReference().child("USERS").child(mfirebaseauth.getCurrentUser().getUid());
 
         ref.setValue(member);
 
-        Toast.makeText(this, "Registration Successful!!!", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(MainActivity.this,login.class));
+        startActivity(new Intent(Register.this, Login.class));
 
-        inputname.setText(null);
-        inputemail.setText(null);
-        inputpassword.setText(null);
-        inputage.setText(null);
-        inputaddress.setText(null);
-        inputpin.setText(null);
-        inputcontactnumber.setText(null);
     }
 }
