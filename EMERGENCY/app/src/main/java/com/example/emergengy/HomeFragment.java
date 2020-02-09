@@ -15,7 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
-    Fragment selectedFragment;
+
+    Fragment selectedFragment=null;
 
 
     Button btnnext;
@@ -31,7 +32,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-               getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HospitalFragment()).commit();
+                Fragment selectedFragment = new HospitalFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
 
         }
 

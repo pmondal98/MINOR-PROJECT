@@ -28,8 +28,6 @@ public class Register extends AppCompatActivity {
     private TextInputLayout inputname,inputemail,inputpassword,inputage,inputaddress,inputpin,inputcontactnumber;
     private Button btnsubmit;
 
-    private ProgressDialog progressDialog;
-
     DatabaseReference ref;
     FirebaseAuth mfirebaseauth;
     Member member;
@@ -96,22 +94,16 @@ public class Register extends AppCompatActivity {
 
     private void CreateUserAndSaveData() {
 
-        progressDialog=new ProgressDialog(this);
-        progressDialog.setMessage("Processing your request....please wait...");
-        progressDialog.show();
-
         mfirebaseauth.createUserWithEmailAndPassword(inputemail.getEditText().getText().toString(),inputpassword.getEditText().getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
                     saveData();
-                    progressDialog.dismiss();
                     Toast.makeText(Register.this, "User Successfully Registered...", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    progressDialog.dismiss();
                     FirebaseAuthException e = (FirebaseAuthException)task.getException();
                     Log.i("ERROR",e.getMessage());
                     Toast.makeText(Register.this, "User Registration Failed....Please try again later", Toast.LENGTH_SHORT).show();

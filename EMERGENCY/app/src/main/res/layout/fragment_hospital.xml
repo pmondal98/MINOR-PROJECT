@@ -25,7 +25,8 @@
             android:layout_alignRight="@+id/etsearch"
             android:layout_alignParentEnd="true"
             android:onClick="onClick"
-            android:src="@drawable/search" />
+            android:src="@drawable/ic_search_black"
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 

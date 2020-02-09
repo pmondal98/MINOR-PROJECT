@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -56,7 +57,8 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
 
     SupportMapFragment supportMapFragment;
 
-    EditText etsearch;
+    private  EditText etsearch;
+    private ImageButton searchimg;
 
     private GoogleMap mMap;
     private GoogleApiClient googleApiClient;
@@ -71,6 +73,7 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
         View root = inflater.inflate(R.layout.fragment_hospital,container,false);
 
         etsearch=root.findViewById(R.id.etsearch);
+        searchimg=root.findViewById(R.id.searchimg);
 
         GPSLocationPermission();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -88,26 +91,10 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
         }
         supportMapFragment.getMapAsync(this);
 
-        return root;
-    }
+        searchimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED)
-        {
-            buildGoogleApiCLient();
-
-            mMap.setMyLocationEnabled(true);
-        }
-    }
-
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
-            case R.id.searchimg:
                 String address = etsearch.getText().toString().trim();
 
                 List<Address> addressList = null;
@@ -133,7 +120,7 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
 
                                 mMap.addMarker(userMarkerOptions);
                                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                                mMap.animateCamera(CameraUpdateFactory.zoomBy(10));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
                             }
                         }
                         else
@@ -149,7 +136,21 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
                 {
                     Toast.makeText(getContext(), "Enter any address....", Toast.LENGTH_SHORT).show();
                 }
-                break;
+            }
+        });
+
+        return root;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED)
+        {
+            buildGoogleApiCLient();
+
+            mMap.setMyLocationEnabled(true);
         }
     }
 

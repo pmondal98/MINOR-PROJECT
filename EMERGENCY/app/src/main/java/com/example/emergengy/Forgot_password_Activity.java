@@ -23,8 +23,6 @@ public class Forgot_password_Activity extends AppCompatActivity {
 private TextInputLayout inputforgotemail;
 private Button btnsendemail;
 
-private ProgressDialog progressDialog;
-
 FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,22 +49,16 @@ FirebaseAuth firebaseAuth;
                     Toast.makeText(Forgot_password_Activity.this, "Enter your registered Email-id", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    progressDialog=new ProgressDialog(getApplicationContext());
-                    progressDialog.setMessage("Processing your request....please wait...");
-                    progressDialog.show();
-
                     firebaseAuth.sendPasswordResetEmail(useremail).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())
                             {
-                                progressDialog.dismiss();
                                 Toast.makeText(Forgot_password_Activity.this, "Password Reset link is send to Email", Toast.LENGTH_SHORT).show();
                                 finish();
                                 startActivity(new Intent(Forgot_password_Activity.this, Login.class));
                             }
                             else{
-                                progressDialog.dismiss();
                                 Toast.makeText(Forgot_password_Activity.this, "Sorry! Password Reset Email send failed...Email is not registered!!! ", Toast.LENGTH_SHORT).show();
                             }
                         }

@@ -23,8 +23,6 @@ public class Login extends AppCompatActivity {
     Button btnlogin;
     TextView tvregister,tvforgotpassword;
 
-    private ProgressDialog progressDialog;
-
     FirebaseAuth mfirebaseauth;
 
     private long backPressedTime;
@@ -63,20 +61,15 @@ public class Login extends AppCompatActivity {
                 }
                 else if(!(email.isEmpty() && password.isEmpty()))
                 {
-                    progressDialog=new ProgressDialog(getApplicationContext());
-                    progressDialog.setMessage("Logging In....please wait...");
-                    progressDialog.show();
                     mfirebaseauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful())
                             {
-                                progressDialog.dismiss();
                                 Toast.makeText(Login.this, "Login Unsuccessful....please try again later", Toast.LENGTH_LONG).show();
                             }
                             else
                             {
-                                progressDialog.dismiss();
                                 startActivity(new Intent(Login.this,CategoryActivity.class));
                             }
                         }
