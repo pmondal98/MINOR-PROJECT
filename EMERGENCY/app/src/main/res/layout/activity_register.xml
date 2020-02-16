@@ -73,7 +73,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="number"
             android:hint="Enter your Age"
             android:textColorHint="#fff"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -105,24 +105,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="number"
             android:hint="Enter your PIN"
-            android:textColorHint="#fff"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputcontactnumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inputpin"
-        android:layout_marginTop="20dp"
-        android:layout_margin="5dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter your Phone number"
             android:textColorHint="#fff"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/inputcontactnumber"
+        android:layout_below="@id/inputpin"
         android:text="SUBMIT"
         android:textSize="20dp"
         android:layout_marginTop="15dp"

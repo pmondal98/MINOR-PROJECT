@@ -25,12 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
-    private TextInputLayout inputname,inputemail,inputpassword,inputage,inputaddress,inputpin,inputcontactnumber;
+    private TextInputLayout inputname,inputemail,inputpassword,inputage,inputaddress,inputpin;
     private Button btnsubmit;
 
     DatabaseReference ref;
     FirebaseAuth mfirebaseauth;
     Member member;
+    String phonenumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +52,11 @@ public class Register extends AppCompatActivity {
         inputage=findViewById(R.id.inputage);
         inputaddress=findViewById(R.id.inputaddress);
         inputpin=findViewById(R.id.inputpin);
-        inputcontactnumber=findViewById(R.id.inputcontactnumber);
         btnsubmit=findViewById(R.id.btnsubmit);
 
         mfirebaseauth = FirebaseAuth.getInstance();
         member=new Member();
+        phonenumber = getIntent().getStringExtra("phonenumber");
 //        ref= FirebaseDatabase.getInstance().getReference().child("USERS");
 
 
@@ -75,8 +76,6 @@ public class Register extends AppCompatActivity {
                     inputaddress.setError("Address is required");
                 else if (inputpin.getEditText().getText().toString().trim().length()==0)
                     inputpin.setError("Pic Code of your area is required");
-                else if (inputcontactnumber.getEditText().getText().toString().trim().length()==0)
-                    inputcontactnumber.setError("Phone number is required");
                 else {
                     CreateUserAndSaveData();
                 }
@@ -114,6 +113,7 @@ public class Register extends AppCompatActivity {
 
     private void saveData()
     {
+        phonenumber = getIntent().getStringExtra("phonenumber");
 
         member.setName(inputname.getEditText().getText().toString().trim());
         member.setEmail(inputemail.getEditText().getText().toString().trim());
@@ -121,7 +121,7 @@ public class Register extends AppCompatActivity {
         member.setAge(inputage.getEditText().getText().toString().trim());
         member.setAddress(inputaddress.getEditText().getText().toString().trim());
         member.setPin(inputpin.getEditText().getText().toString().trim());
-        member.setContactnumber(inputcontactnumber.getEditText().getText().toString().trim());
+        member.setContactnumber(phonenumber);
 
         ref= FirebaseDatabase.getInstance().getReference().child("USERS").child(mfirebaseauth.getCurrentUser().getUid());
 

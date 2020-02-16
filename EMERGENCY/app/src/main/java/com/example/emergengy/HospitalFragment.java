@@ -105,7 +105,7 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
                     Geocoder geocoder=new Geocoder(getContext());
 
                     try {
-                        addressList=geocoder.getFromLocationName(address,6);
+                        addressList=geocoder.getFromLocationName(address,3);
 
                         if (addressList != null)
                         {
@@ -120,7 +120,7 @@ public class HospitalFragment extends Fragment implements OnMapReadyCallback,Goo
 
                                 mMap.addMarker(userMarkerOptions);
                                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                                mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                             }
                         }
                         else
