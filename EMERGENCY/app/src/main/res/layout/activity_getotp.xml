@@ -25,7 +25,7 @@
         android:layout_below="@id/text2"
         app:pinWidth="40dp"
         app:pinHeight="40dp"
-        app:pinLength="4"
+        app:pinLength="6"
         app:cursorVisible="false"
         app:forceKeyboard="true"
         app:hint="0"
