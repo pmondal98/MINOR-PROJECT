@@ -51,7 +51,7 @@ public class getotp extends AppCompatActivity {
 
                 String code = pinview.getValue();
 
-                if ((code.isEmpty() || code.length() < 4)){
+                if ((code.isEmpty() || code.length() < 6)){
 
                     Toast.makeText(getotp.this, "Enter Code...", Toast.LENGTH_SHORT).show();
                     return;
