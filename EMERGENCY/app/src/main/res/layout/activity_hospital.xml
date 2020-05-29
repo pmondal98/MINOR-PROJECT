@@ -6,45 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".HospitalActivity">
 
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/rtsearch"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/etsearch"-->
-<!--            android:layout_width="370dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:ems="10"-->
-<!--            android:hint="Search Here...."-->
-<!--            android:layout_alignParentLeft="true" />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/searchimg"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:layout_alignRight="@+id/etsearch"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:onClick="onClick"-->
-<!--            android:src="@drawable/ic_search_black"-->
-<!--            android:layout_alignParentRight="true" />-->
-
-<!--    </RelativeLayout>-->
-
 
     <Button
         android:id="@+id/btncancelambulance"
-        android:layout_width="match_parent"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:text="CANCEL AMBULANCE"
-        android:textSize="20dp"
         android:background="#ffaf75"
-        android:layout_alignParentRight="true"
-        android:layout_margin="5dp"
-        android:layout_alignParentTop="true" />
+        android:text="CANCEL AMBULANCE"
+        android:textSize="20dp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"

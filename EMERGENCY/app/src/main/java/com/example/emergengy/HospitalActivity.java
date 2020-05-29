@@ -71,7 +71,7 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
     Marker DriverMarker;
     private static final int Request_User_Location_Code=99;
 
-    private Button btncallambulance;
+    private Button btncallambulance,btncancelambulance;
 //    private EditText etsearch;
 //    private ImageButton searchimg;
 
@@ -113,6 +113,10 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
         }
 
         btncallambulance=findViewById(R.id.btncallambulance);
+        btncancelambulance=findViewById(R.id.btncancelambulance);
+
+        btncancelambulance.setVisibility(View.INVISIBLE);
+        btncancelambulance.setEnabled(false);
 
         mAuth=FirebaseAuth.getInstance();
         currentUser=mAuth.getCurrentUser();
@@ -257,6 +261,9 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
                     location2.setLongitude(driverLatLng.longitude);
                     float distance=location1.distanceTo(location2);
                     btncallambulance.setText("Ambulane Found:"+String.valueOf(distance));
+
+                    btncancelambulance.setVisibility(View.VISIBLE);
+                    btncancelambulance.setEnabled(true);
 
                     DriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Your Driver is here"));
                     DriverMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ambulanceicon));
