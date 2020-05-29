@@ -34,6 +34,18 @@
 <!--    </RelativeLayout>-->
 
 
+    <Button
+        android:id="@+id/btncancelambulance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="CANCEL AMBULANCE"
+        android:textSize="20dp"
+        android:background="#ffaf75"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:layout_alignParentTop="true" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
