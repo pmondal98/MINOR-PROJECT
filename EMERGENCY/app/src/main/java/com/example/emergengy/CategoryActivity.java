@@ -171,10 +171,6 @@ public class CategoryActivity extends AppCompatActivity implements GoogleApiClie
                             selectedFragment = new HomeFragment();
                             break;
 
-                        case R.id.nav_search:
-                            selectedFragment = new HospitalFragment();
-                            break;
-
                         case R.id.nav_about:
                             selectedFragment = new AboutFragment();
                             break;

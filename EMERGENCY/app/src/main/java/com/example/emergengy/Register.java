@@ -33,6 +33,8 @@ public class Register extends AppCompatActivity {
     Member member;
     String phonenumber;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +79,10 @@ public class Register extends AppCompatActivity {
                 else if (inputpin.getEditText().getText().toString().trim().length()==0)
                     inputpin.setError("Pic Code of your area is required");
                 else {
+                    progressDialog=new ProgressDialog(Register.this);
+                    progressDialog.setMessage("Logging in....please wait...");
+                    progressDialog.show();
+
                     CreateUserAndSaveData();
                 }
             }
@@ -98,11 +104,13 @@ public class Register extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
+                    progressDialog.dismiss();
                     saveData();
                     Toast.makeText(Register.this, "User Successfully Registered...", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
+                    progressDialog.dismiss();
                     FirebaseAuthException e = (FirebaseAuthException)task.getException();
                     Log.i("ERROR",e.getMessage());
                     Toast.makeText(Register.this, "User Registration Failed....Please try again later", Toast.LENGTH_SHORT).show();

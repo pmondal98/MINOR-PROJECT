@@ -17,7 +17,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:text="SELECT CATEGORY ->"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="24dp"
         android:textStyle="bold" />
 
@@ -35,8 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ACCIDENT"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
+            android:buttonTint="#000"
+            android:textColor="#000"
             android:textSize="20sp" />
 
         <RadioButton
@@ -45,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="PREGNANT  WOMAN"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
+            android:buttonTint="#000"
+            android:textColor="#000"
             android:textSize="20sp" />
 
         <RadioButton
@@ -55,8 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="OLD AGE PEOPLE"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
+            android:buttonTint="#000"
+            android:textColor="#000"
             android:textSize="20sp" />
     </RadioGroup>
     <TextView
@@ -67,7 +67,7 @@
         android:layout_below="@+id/rgcategory"
         android:layout_alignLeft="@+id/rgcategory"
         android:text="SELECT CONDITION ->"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="24dp"
         android:textStyle="bold" />
 
@@ -84,8 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="VERY CRITICAL"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
+            android:buttonTint="#000"
+            android:textColor="#000"
             android:textSize="20sp" />
 
         <RadioButton
@@ -94,8 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="CRITICAL"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
+            android:buttonTint="#000"
+            android:textColor="#000"
             android:textSize="20sp" />
 
         <RadioButton
@@ -104,8 +104,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="LESS CRITICAL"
-            android:buttonTint="@color/white"
-            android:textColor="#fff"
+            android:buttonTint="#000"
+            android:textColor="#000"
             android:textSize="20sp" />
     </RadioGroup>
 

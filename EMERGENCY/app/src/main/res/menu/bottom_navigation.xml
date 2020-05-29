@@ -10,11 +10,6 @@
         android:title="HOME"/>
 
     <item
-        android:id="@+id/nav_search"
-        android:icon="@drawable/ic_local_hospital"
-        android:title="HOSPITALS"/>
-
-    <item
         android:id="@+id/nav_about"
         android:icon="@drawable/ic_people_outline"
         android:title="ABOUT"/>
