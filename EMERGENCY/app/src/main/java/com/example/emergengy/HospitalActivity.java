@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -74,6 +75,14 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
     private Button btncallambulance,btncancelambulance;
 //    private EditText etsearch;
 //    private ImageButton searchimg;
+
+    DatabaseReference driveravailableref;
+    DatabaseReference driverworkingref;
+
+    private boolean cancel=false;
+
+    GeoQuery geoQuery;
+    private ValueEventListener driverLocRefValueEventListener;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -140,13 +149,40 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
             }
         });
 
+        btncancelambulance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CancelAmbulance();
+            }
+        });
+
+    }
+
+
+
+    private void CancelAmbulance() {
+        geoQuery.removeAllListeners();
+        driverlocref.removeEventListener(driverLocRefValueEventListener);
+
+        String userid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("CUSTOMERS REQUESTS");
+        GeoFire geofire=new GeoFire(ref);
+        geofire.removeLocation(userid);
+
+        DatabaseReference dref=FirebaseDatabase.getInstance().getReference().child("DRIVER-CUSTOMER").child(driverfoundID);
+        dref.removeValue();
+
+        Intent intent= new Intent(this, HospitalActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void getclosestambulance() {
 
         GeoFire geoFire=new GeoFire(DriverAvailableRef);
 
-        GeoQuery geoQuery=geoFire.queryAtLocation(new GeoLocation(CustomerPickUpLocation.latitude, CustomerPickUpLocation.longitude), radius);
+        geoQuery=geoFire.queryAtLocation(new GeoLocation(CustomerPickUpLocation.latitude, CustomerPickUpLocation.longitude), radius);
         geoQuery.removeAllListeners();
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
@@ -169,6 +205,7 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
                     DatabaseReference driverworkingref = FirebaseDatabase.getInstance().getReference().child("DRIVERS WORKING");
 
                     moveFirebaseRecord(driveravailableref.child(driverfoundID), driverworkingref.child(driverfoundID));
+
                     driveravailableref.child(driverfoundID).removeValue();
                     GetDriverLocation();
                 }
@@ -230,7 +267,7 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
 
     private void GetDriverLocation() {
         driverlocref=FirebaseDatabase.getInstance().getReference().child("DRIVERS WORKING").child(driverfoundID).child("l");
-        driverlocref.addValueEventListener(new ValueEventListener() {
+        driverLocRefValueEventListener = driverlocref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
