@@ -39,6 +39,49 @@ public class HomeFragment extends Fragment {
         rgcategory = root.findViewById(R.id.rgcategory);
         rgcondition = root.findViewById(R.id.rgcondition);
 
+        btnnext.setVisibility(View.INVISIBLE);
+        btnnext.setEnabled(false);
+
+        rgcategory.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId)
+                {
+                    case R.id.rbaccident:
+                        btnnext.setEnabled(true);
+                        break;
+
+                    case R.id.rbpregwoman:
+                        btnnext.setEnabled(true);
+                        break;
+
+                    case R.id.rboldpeople:
+                        btnnext.setEnabled(true);
+                        break;
+                }
+            }
+        });
+
+        rgcondition.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId)
+                {
+                    case R.id.rblesscritical:
+                        btnnext.setVisibility(View.VISIBLE);
+                        break;
+
+                    case R.id.rbcritical:
+                        btnnext.setVisibility(View.VISIBLE);
+                        break;
+
+                    case R.id.rbverycritical:
+                        btnnext.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
+
 
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +98,12 @@ public class HomeFragment extends Fragment {
                 radioButtonCategory = root.findViewById(selectedCategory);
                 category= (String)radioButtonCategory.getText();
 
-               Intent intent=new Intent(getContext(),HospitalActivity.class);
-               intent.putExtra("Condition",condition);
-               intent.putExtra("Category",category);
+                Intent intent=new Intent(getContext(),HospitalActivity.class);
+                intent.putExtra("Condition",condition);
+                intent.putExtra("Category",category);
                 Toast.makeText(getContext(), condition+"\n"+category, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
+
             }
         });
 

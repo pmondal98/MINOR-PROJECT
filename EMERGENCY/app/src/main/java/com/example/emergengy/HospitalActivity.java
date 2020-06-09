@@ -297,7 +297,11 @@ public class HospitalActivity extends FragmentActivity implements OnMapReadyCall
                     location2.setLatitude(driverLatLng.latitude);
                     location2.setLongitude(driverLatLng.longitude);
                     float distance=location1.distanceTo(location2);
-                    btncallambulance.setText("Ambulane Found:"+String.valueOf(distance));
+
+                    if(distance < 90)
+                        btncallambulance.setText("Ambulane Reached");
+                    else
+                        btncallambulance.setText("Ambulane Found:"+String.valueOf(distance));
 
                     btncancelambulance.setVisibility(View.VISIBLE);
                     btncancelambulance.setEnabled(true);

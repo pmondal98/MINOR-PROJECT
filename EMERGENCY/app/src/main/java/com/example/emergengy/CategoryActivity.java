@@ -186,31 +186,6 @@ public class CategoryActivity extends AppCompatActivity implements GoogleApiClie
                 };
 
                 @Override
-                public boolean onCreateOptionsMenu(Menu menu) {
-
-                    getMenuInflater().inflate(R.menu.menu, menu);
-                    return true;
-
-                }
-
-                @Override
-                public boolean onOptionsItemSelected(MenuItem item) {
-
-                    int id = item.getItemId();
-
-                    switch (id) {
-                        case R.id.logout:
-                            FirebaseAuth.getInstance().signOut();
-                            Intent intent = new Intent(CategoryActivity.this, Login.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            break;
-                    }
-                    return true;
-                }
-
-                @Override
                 public void onBackPressed() {
 
                     if (backPressedTime + 2000 > System.currentTimeMillis()) {

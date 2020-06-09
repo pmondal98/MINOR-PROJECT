@@ -4,22 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/emergencyfrontimg"
     tools:context=".Login">
-
-    <ImageView
-        android:id="@+id/top_image"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/emergencyfrontimg" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputemail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/top_image"
-        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="225dp"
         android:layout_marginBottom="5dp"
         android:textColorHint="#000">
 
@@ -78,7 +71,7 @@
         android:layout_below="@id/tvforgotpassword"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="New user? Register here"
         android:background="@drawable/rectangle"
         android:textColor="#000"

@@ -2,11 +2,13 @@ package com.example.emergengy;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class ProfileFragment extends Fragment{
     private TextView textname,textphone,textemail,textpin,textage,textaddress;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    private Button btnlogout;
 
     @Nullable
     @Override
@@ -40,6 +43,7 @@ public class ProfileFragment extends Fragment{
         textpin=root.findViewById(R.id.textpin);
         textphone=root.findViewById(R.id.textphone);
         textaddress=root.findViewById(R.id.textaddress);
+        btnlogout=root.findViewById(R.id.btnlogout);
 
         textemail.setMovementMethod(new ScrollingMovementMethod());
         textaddress.setMovementMethod(new ScrollingMovementMethod());
@@ -64,6 +68,16 @@ public class ProfileFragment extends Fragment{
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(getContext(),databaseError.getCode(), Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        btnlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+
+                startActivity(new Intent(getContext(),Login.class));
+                getActivity().finish();
             }
         });
 
